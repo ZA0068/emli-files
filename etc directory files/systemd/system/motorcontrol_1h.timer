@@ -1,0 +1,9 @@
+[Unit]
+Description=Runs motor control script every 1 hour
+
+[Timer]
+OnBootSec=1h
+OnUnitActiveSec=1h
+
+[Install]
+WantedBy=timers.target

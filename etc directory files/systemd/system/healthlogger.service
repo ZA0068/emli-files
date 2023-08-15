@@ -1,0 +1,9 @@
+[Unit]
+Description=Health Logger Service
+
+[Service]
+EnvironmentFile=/etc/environment.d/influxenv.conf
+ExecStart="/home/EMLI_TEAM_24/bin/Influx-database-logging/Health logging/healthlogging.sh"
+
+[Install]
+WantedBy=multi-user.target

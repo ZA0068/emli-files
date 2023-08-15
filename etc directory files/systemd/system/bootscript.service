@@ -1,0 +1,17 @@
+[Unit]
+Description=Boot script starter
+After=network.target
+
+[Service]
+Type=oneshot
+User=EMLI_TEAM_24
+WorkingDirectory=/home/EMLI_TEAM_24/bin
+ExecStartPre=/bin/sleep 1
+ExecStart=/home/EMLI_TEAM_24/bin/boot.sh
+Restart=on-failure
+RestartSec=10
+StartLimitInterval=300
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

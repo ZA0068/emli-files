@@ -1,0 +1,10 @@
+[Unit]
+Description=Writes counter to a log file which is used by the ros node moist publisher
+
+[Service]
+User=EMLI_TEAM_24
+Group=EMLI_TEAM_24
+ExecStart=/home/EMLI_TEAM_24/bin/motor_1h.sh
+
+[Install]
+WantedBy=multi-user.target

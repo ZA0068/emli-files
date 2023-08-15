@@ -1,0 +1,9 @@
+[Unit]
+Description=Security Logger Service
+
+[Service]
+EnvironmentFile=/etc/environment.d/influxenv.conf
+ExecStart="/home/EMLI_TEAM_24/bin/Influx-database-logging/Security logging/securitylogging.sh"
+
+[Install]
+WantedBy=multi-user.target

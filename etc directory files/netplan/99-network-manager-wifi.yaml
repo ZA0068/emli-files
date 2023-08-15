@@ -1,0 +1,11 @@
+network:
+  version: 2
+  renderer: networkd
+  wifis:
+    wlan0:
+      dhcp4: no
+      dhcp6: no
+      addresses: [192.168.20.1/24]
+      access-points:
+        "EMLI_TEAM_24":
+          password: "12345678"

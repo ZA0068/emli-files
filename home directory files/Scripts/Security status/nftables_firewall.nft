@@ -1,0 +1,38 @@
+#!/sbin/nft -f
+
+define WAN0 = wlan0 # Define the WAN interface
+
+# Clear existing rules
+flush ruleset
+
+# NAT table for address translation
+table ip nat {
+    chain prerouting {
+        type nat hook prerouting priority 0; 
+        policy accept;
+    }
+    
+    chain postrouting {
+        type nat hook postrouting priority 100; 
+        oifname $WAN0 masquerade # Masquerade packets leaving via wlan0
+    }
+}
+
+# Filter table for controlling incoming traffic
+table inet filter {
+    chain input {
+        type filter hook input priority 0;
+        
+        # Allow established/related connections
+        ct state established,related accept
+
+        # Allow SSH (TCP port 22)
+        tcp dport 22 accept
+
+        # Allow HTTP (TCP port 80)
+        tcp dport 80 accept
+
+        # Drop everything else
+        drop
+    }
+}

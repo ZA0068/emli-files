@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Open the serial connection
+exec 3<>/dev/ttyACM0  # Replace with the appropriate serial port (ttyACM0 or similar)
+
+# Send 'p' character to activate the pump
+echo "p" >&3
+# Close the serial connection
+exec 3<&-
+exec 3>&-
