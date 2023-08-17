@@ -1,0 +1,4 @@
+interface=wlan0
+dhcp-range=192.168.20.150,192.168.20.199,255.255.255.0,1h
+domain=wlan
+address=/emli_ap.wlan/192.168.20.1
